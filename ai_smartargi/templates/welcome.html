@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('/static/images/crop.jpg'); /* Path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            color: #fff; /* White text for contrast against background */
+            font-size: 3.5em; /* Larger text */
+            font-weight: 700; /* Bold */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+            margin-bottom: 40px;
+            animation: fadeBounce 1.5s ease-in-out; /* Animation for title */
+        }
+        form {
+            display: inline-block; /* Keeps button centered */
+        }
+        button {
+            background:rgb(71, 99, 235);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            font-weight: 400;
+            border-radius: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeBounce 1.5s ease-in-out 0.3s; /* Animation with slight delay */
+            animation-fill-mode: both; /* Keeps final state */
+        }
+        button:hover {
+            background:rgb(60, 73, 169);
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Crop Yield Prediction</h1>
+    <form action="{{ url_for('form') }}">
+        <button type="submit">Predict Yield</button>
+    </form>
+</body>
+</html>
